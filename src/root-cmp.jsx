@@ -10,9 +10,9 @@ import { UserDetails } from './pages/user-details'
 export function RootCmp() {
 
     return (
-        <div>
+        <div className="main-container">
             <AppHeader />
-            <main>
+            <main className="curr-page">
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     <Route path="user/:id" element={<UserDetails />} />

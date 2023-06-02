@@ -51,9 +51,9 @@ export function HomePage() {
 
     return (
         <div>
-            <h3>InstaPosts App</h3>
+            <h3>Shamstagram App</h3>
             <main>
-                <button onClick={onAddInstaPost}>Add InstaPost ⛐</button>
+                <button onClick={onAddInstaPost}>Add InstaPost</button>
                 <ul className="instaPost-list">
                     {instaPosts.map(instaPost =>
                         <li className="instaPost-preview" key={instaPost._id}>
