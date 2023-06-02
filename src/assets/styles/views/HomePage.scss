@@ -1,0 +1,21 @@
+.instaPost-preview {
+    width: 468px;
+    margin-inline: 162px;
+}
+
+.instaPost-preview > .buttons {
+    display: flex;
+}
+
+.instaPost-preview > .buttons > .icon {
+    margin-top: 6px;
+    margin-inline-end: 16px;
+    height: 24px;
+    width: 24px;
+}
+
+.instaPost-preview > .buttons > .save {
+    text-align: end;
+    margin-inline-end: 0;
+    margin-inline-start: auto;
+}
