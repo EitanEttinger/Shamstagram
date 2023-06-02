@@ -2,6 +2,7 @@
 import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+import messi from '../assets/img/messi.png'
 
 
 const STORAGE_KEY = 'instaPost'
@@ -49,7 +50,8 @@ function getEmptyInstaPost() {
     // const eh = Date.now()
     return {
         by: 'fabriziorom 🚨👋🏻',
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvXpsm4RSo0WUNpbs_GPjBlwiv3QYb6OYnfA&usqp=CAU',
+        // img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvXpsm4RSo0WUNpbs_GPjBlwiv3QYb6OYnfA&usqp=CAU',
+        img: messi,
         txt: utilService.makeLorem(utilService.getRandomIntInclusive(5, 11)),
         time: Date.now(),
         comments: [{
