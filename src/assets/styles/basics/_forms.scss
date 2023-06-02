@@ -1,4 +1,4 @@
-button {
+button:not(.options) {
     border:0;
     background-color: $clr1;
     color:whitesmoke;

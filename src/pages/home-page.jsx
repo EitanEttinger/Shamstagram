@@ -5,6 +5,7 @@ import { loadInstaPosts, addInstaPost, updateInstaPost, removeInstaPost } from '
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { instaPostService } from '../services/instaPost.service.js'
 import { utilService } from '../services/util.service.js'
+import { LongTxt } from '../cmps/long-txt.jsx'
 
 import { AiOutlineHeart } from "react-icons/ai";
 import { FiSend } from "react-icons/fi";
@@ -62,6 +63,15 @@ export function HomePage() {
                 <ul className="instaPost-list">
                     {instaPosts.map(instaPost =>
                         <li className="instaPost-preview" key={instaPost._id}>
+                            <a className='author'>{instaPost.by}</a>
+                            <span> • {utilService.getTimeString(instaPost.time)}</span>
+                            <button className='options'>
+                                <svg aria-label="More options" class="icon options" color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" role="img" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="1.5"></circle>
+                                    <circle cx="6" cy="12" r="1.5"></circle>
+                                    <circle cx="18" cy="12" r="1.5"></circle>
+                                </svg>
+                            </button>
                             <img src={instaPost.img} />
                             <div className='buttons'>
                             {/* <AiOutlineHeart  />
@@ -86,23 +96,24 @@ export function HomePage() {
                                 <polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon>
                             </svg> 
                             </div>
-                            {/* <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvXpsm4RSo0WUNpbs_GPjBlwiv3QYb6OYnfA&usqp=CAU' /> */}
-                            <h1>{instaPost.txt}</h1>
-                            <h1>{instaPost.comments[0].by + instaPost.comments[0].txt}</h1>
-                            <p>{utilService.getTimeString(instaPost.time)}</p>
+                            <h2 className='liked-by'>
+                                Liked by <a className='author'>{instaPost.liked[0].by}</a> and {instaPost.liked.length - 1} <a className='author'>others</a>
+                            </h2>
+                            <h2 className='caption'>
+                                <a className='author'>{instaPost.by}</a>
+                                <span className='caption-txt'> <LongTxt txt={instaPost.txt}/></span>
+                            </h2>
+                            <h2 className='comments'>
+                                <span>View all {instaPost.comments.length} comments</span>
+                                {/* <a className='author'>{instaPost.comments[0].by}</a> 
+                                <span> {instaPost.comments[0].txt}</span> */}
+                            </h2>
                             <div>
                                 <button onClick={() => { onRemoveInstaPost(instaPost._id) }}>x</button>
                                 <button onClick={() => { onUpdateInstaPost(instaPost) }}>Edit</button>
                             </div>
-
-                            {/* <h4>{instaPost.vendor}</h4>
-                            <p>Price: <span>${instaPost.price.toLocaleString()}</span></p>
-                            <p>Owner: <span>{instaPost.owner && instaPost.owner.fullname}</span></p>
-                            <div>
-                                <button onClick={() => { onRemoveInstaPost(instaPost._id) }}>x</button>
-                                <button onClick={() => { onUpdateInstaPost(instaPost) }}>Edit</button>
-                            </div>
-                            <button onClick={() => { onAddInstaPostMsg(instaPost) }}>Add instaPost msg</button> */}
+                            
+                            {/* <button onClick={() => { onAddInstaPostMsg(instaPost) }}>Add instaPost msg</button> } */}
                         </li>)
                     }
                 </ul>
