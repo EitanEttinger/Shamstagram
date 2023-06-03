@@ -5,48 +5,49 @@ import { userService } from './user.service.js'
 import messi from '../assets/img/messi.png'
 
 
-const STORAGE_KEY = 'instaPost'
+const STORAGE_KEY = 'story'
 
-export const instaPostService = {
+export const storyService = {
     query,
     getById,
     save,
     remove,
-    getEmptyInstaPost,
-    addInstaPostMsg
+    getEmptyStory,
+    addStoryMsg,
+    createComment
 }
-window.cs = instaPostService
+window.cs = storyService
 
 
 async function query(filterBy = { txt: '', price: 0 }) {
     return httpService.get(STORAGE_KEY, filterBy)
 }
 
-function getById(instaPostId) {
-    return httpService.get(`instaPost/${instaPostId}`)
+function getById(storyId) {
+    return httpService.get(`story/${storyId}`)
 }
 
-async function remove(instaPostId) {
-    return httpService.delete(`instaPost/${instaPostId}`)
+async function remove(storyId) {
+    return httpService.delete(`story/${storyId}`)
 }
-async function save(instaPost) {
-    var savedInstaPost
-    if (instaPost._id) {
-        savedInstaPost = await httpService.put(`instaPost/${instaPost._id}`, instaPost)
+async function save(story) {
+    var savedStory
+    if (story._id) {
+        savedStory = await httpService.put(`story/${story._id}`, story)
 
     } else {
-        savedInstaPost = await httpService.post('instaPost', instaPost)
+        savedStory = await httpService.post('story', story)
     }
-    return savedInstaPost
+    return savedStory
 }
 
-async function addInstaPostMsg(instaPostId, txt) {
-    const savedMsg = await httpService.post(`instaPost/${instaPostId}/msg`, { txt })
+async function addStoryMsg(storyId, txt) {
+    const savedMsg = await httpService.post(`story/${storyId}/msg`, { txt })
     return savedMsg
 }
 
 
-function getEmptyInstaPost() {
+function getEmptyStory() {
     // const eh = Date.now()
     return {
         by: 'fabriziorom',
@@ -76,4 +77,22 @@ function getEmptyInstaPost() {
         // time: Date.now() - 1000000000,
         // time: new Date(8.64e15),
     }
+
+}
+
+function createComment(txt, user) {
+    return {
+      id: _makeId(),
+      by: user,
+      txt
+    }
+}
+
+function _makeId(length = 4) {
+    var text = ''
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    for (var i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length))
+    }
+    return text
 }
