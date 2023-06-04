@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from "react-router-dom";
 import { updateStory, removeStory } from '../store/story.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
@@ -92,9 +93,9 @@ export function StoryPreview({ story }) {
                 <span className='caption-txt'> <LongTxt txt={story.txt} /></span>
             </h2>
             <h2 className='comments'>
-                <span>View all {story.comments.length} comments</span>
-                {/* <a className='author'>{story.comments[0].by}</a>
-                    <span> {story.comments[0].txt}</span> */}
+            {story.comments.length > 2 && <span className='view-comments'>View all {story.comments.length} comments</span>}
+            {(story.comments.length > 0 && story.comments.length < 3) && <p><a className='author'>{story.comments[0].by}</a> <LongTxt txt={story.comments[0].txt} /></p>}
+            {(story.comments.length > 1 && story.comments.length < 3) && <p><a className='author'>{story.comments[1].by}</a> <LongTxt txt={story.comments[1].txt} /></p>}
             </h2>
             <CommentForm comment={comment} setComment={setComment} addStoryComment={addStoryComment} />
             <div className='story-divider'></div>
