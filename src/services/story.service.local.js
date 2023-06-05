@@ -69,9 +69,7 @@ async function addStoryMsg(storyId, txt) {
 
 function getEmptyStory() {
     // const eh = Date.now()
-    const txt = `🔵🔴 | “𝐌𝐞𝐬𝐬𝐢 𝐰𝐢𝐥𝐥 𝐝𝐞𝐜𝐢𝐝𝐞 𝐧𝐞𝐱𝐭 𝐰𝐞𝐞𝐤”
-
-    Xavi says it all about Barcelona summer window plans in an exclusive interview with @mundodeportive`
+    const txt = `🔵🔴 | “Messi will decide next week”`
     
     return {
         by: 'fabriziorom',
