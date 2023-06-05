@@ -59,10 +59,10 @@ function getEmptyStory() {
             by: 'liveherewego',
             txt: 'Like this if you feel Leo will become Barça player 🔵🔴👀'
             },
-            {
-                by: 'd11d0munc3r',
-                txt: 'Doubt barca have this much money to afford all these players and their wages.'
-            },
+            // {
+            //     by: 'd11d0munc3r',
+            //     txt: 'Doubt barca have this much money to afford all these players and their wages.'
+            // },
         ],
         liked: [
             {
