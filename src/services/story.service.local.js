@@ -71,23 +71,7 @@ function getEmptyStory() {
     // const eh = Date.now()
     const txt = `🔵🔴 | “𝐌𝐞𝐬𝐬𝐢 𝐰𝐢𝐥𝐥 𝐝𝐞𝐜𝐢𝐝𝐞 𝐧𝐞𝐱𝐭 𝐰𝐞𝐞𝐤”
 
-    Xavi says it all about Barcelona summer window plans in an exclusive interview with @mundodeportivo ⤵️✨
-    
-    🇦🇷 “Leo Messi will decide his future next week — he has 100% my OK to join us. He knows we're ready to welcome him. Nothing has changed, we have chances. We want Leo here. Let him decide, leave it with him”.
-    
-    🇧🇷 “Raphinha is NOT on the market. He's staying at Barcelona and he's gonna help us a lot. He's a crucial player for me… but really, really important player”.
-    
-    🇧🇪 “We've an option clause to sign Yannick Ferreira Carrasco this summer. It was negotiated by Mateu so we will see. It depends on what happens next week”.
-    
-    🧞‍♂️ “Yes, Bernardo Silva was tempted by joining us last summer. It's normal — players are always open to join Barça. Bernardo would be an excellent signing but… he's Manchester City player. So it’s very difficult”.
-    
-    ♟️ “We need a new pivot to replace Busquets, it’s a priority. Zubimendi and Kimmich are super top players in their position. Ofc, Kimmich has long contract at Bayern so the only chance would be to negotiate with them. This depends on the club”.
-    
-    👀 “Gündogan deal? Well, the only thing I can share is that any footballer we are going to sign and that we have the chance to talk to wants to come here…”.
-    
-    ⚠️ “Joao Cancelo did not come to Barça in January simply because City did NOT want him to go to Barça. They didn’t tell me any reason, simply that it couldn't be done because City had said no to Barça option. So ask this question to them, ask Pep, ask their board…”.
-    
-    #fcb #barcelona #fcblive #barça #bcn #xavi #messi #transfers #leomessi #football #ucl #herewego #epl`
+    Xavi says it all about Barcelona summer window plans in an exclusive interview with @mundodeportive`
     
     return {
         by: 'fabriziorom',

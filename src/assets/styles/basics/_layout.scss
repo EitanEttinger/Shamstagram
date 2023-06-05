@@ -2,11 +2,6 @@
     display: grid;
     grid-template-columns: 20px 1fr 20px;
 
-    > .app-header {
-        // background-color: pink;
-        // grid-column: 1 / 2;
-    }
-
     > * {
         grid-column: 2;
 

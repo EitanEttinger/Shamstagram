@@ -1,4 +1,4 @@
-.app-header {
+.nav-bar {
     // background-color: pink;
     padding: 10px;
 
@@ -73,4 +73,23 @@
     }
 
 
+}
+
+.story-edit-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-inline-start: 1px solid #ccc;
+    min-width: 200px;
+
+    transform: translateX(100%);
+
+    transition: transform 0.6s, box-shadow 0.6s;
+}
+
+body.menu-open .story-edit-container {
+    transform: translateX(0);
+    box-shadow: -1px 1px 20px rgb(0 0 0 / 50%);
 }

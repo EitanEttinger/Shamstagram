@@ -100,6 +100,5 @@ export function StoryPreview({ story }) {
                 {(story.comments.length > 1 && story.comments.length < 3) && <p><a className='author'>{story.comments[1].by}</a> <LongTxt txt={story.comments[1].txt} /></p>}
             </h2>
             <CommentForm comment={comment} setComment={setComment} addStoryComment={addStoryComment} />
-            <div className='story-divider'></div>
         </section>)
 }

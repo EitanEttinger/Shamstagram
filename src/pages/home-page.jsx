@@ -29,9 +29,9 @@ export function HomePage() {
     //     }
     // }
 
-    async function onAddStory() {
-        return
-    }
+    // async function onAddStory() {
+    //     return
+    // }
 
     async function onAddStory(imgUrl = null) {
         const story = storyService.getEmptyStory()
