@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
+import { AiFillSetting } from 'react-icons/ai'
+
 function FancyBox(props) {
     return <div className="fancy-box">
         <button style={{ float: 'right' }} onClick={props.onClose}>x</button>
@@ -20,7 +22,7 @@ function Contacts() {
 }
 
 function Projects() {
-    const [projs, setProjs] = useState(['Puki Proj', 'Muki Proj'])
+    const [projs, setProjs] = useState(['Puki Post', 'Muki Post'])
     const projList = projs.map((proj, idx) => (
         <article className="proj-preview" key={proj} onClick={(ev) => {
             ev.stopPropagation();
@@ -29,12 +31,12 @@ function Projects() {
             {proj}
         </article>
     ))
-    return <section style={{ minHeight: '50vh', backgroundColor: 'lightblue' }}>
-        <h2>Projects</h2>
+    return <section style={{ minHeight: '50vh', backgroundColor: 'white' }}>
+        <h2>Posts</h2>
         {projList}
         <button onClick={ev => {
             ev.stopPropagation();
-            setProjs([...projs, 'Babu Proj' + Date.now() % 100])
+            setProjs([...projs, 'Babu Post' + Date.now() % 100])
         }}>Add</button>
     </section>
 }
@@ -66,28 +68,38 @@ function SplitPane(props) {
 
 
 export function AboutUs() {
-    const [count, setCount] = useState(100)
+    const [count, setCount] = useState(33)
 
     function onTellMeMore() {
         console.log('Telling you more');
     }
     return (
-        <section>
-            <h2>About Us</h2>
-            <SplitPane
+        <section className='profile'>
+            {/* <h2>About Us</h2> */}
+            <FancyBox onClose={() => console.log('ok, closing')}>
+                <h1>Profile</h1>
+                <img src="./assets/img/Eitan.jpg" alt="profile-img" />
+                <h2>eitanesta8</h2>
+                <button>Edit profile</button>
+                <button><AiFillSetting /> options</button>
+                <h3>117 posts</h3>
+                <h3>{count.toLocaleString()} Followers</h3>
+                <h3>3333 following</h3>
+                <h3>Eitan Ettinger: Bla Bla</h3>
+                <button onClick={onTellMeMore}>Tell me More</button>
+            </FancyBox>
+
+            <Projects />
+
+            {/* It was here before: */}
+            {/* <SplitPane
                 left={
                     <Contacts />
                 }
                 right={
                     <Projects />
-                } />
+                } /> */}
 
-            <FancyBox onClose={() => console.log('ok, closing')}>
-                <h3>{count.toLocaleString()} Followers</h3>
-                <button onClick={onTellMeMore}>Tell me More</button>
-            </FancyBox>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aperiam quo veniam velit dolor reprehenderit, laudantium consequatur neque numquam labore quae. Accusamus libero perferendis ducimus? Alias unde hic quisquam doloremque.</p>
         </section>
     )
 }

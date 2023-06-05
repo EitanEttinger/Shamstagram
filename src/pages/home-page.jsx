@@ -32,16 +32,13 @@ export function HomePage() {
 
 
     return (
-        <div>
-            <h3>Shamstagram App</h3>
-            <main>
-                <button onClick={onAddStory}>Add Story</button>
-                <ul className="story-list">
-                    {storys.map(story =>
-                        <StoryPreview story={story} key={story._id}></StoryPreview>)
-                    }
-                </ul>
-            </main>
-        </div>
+        <main className='home-page'>
+            <button onClick={onAddStory}>Add Story</button>
+            <ul className="story-list">
+                {storys.map(story =>
+                    <StoryPreview story={story} key={story._id}></StoryPreview>)
+                }
+            </ul>
+        </main>
     )
 }
