@@ -53,7 +53,9 @@ export function StoryPreview({ story }) {
             <section className='story-header flex'>
                 <div className='header-info'>
                     <a className='author'>{story.by}</a>
-                    <span className='time'> • {utilService.getTimeString(story.time)}</span>
+                    <span title={utilService.getDate(story.time)} className='time'> • {utilService.getTimeString(story.time)}
+                        {/* <title>{utilService.getDate(story.time)}</title> */}
+                    </span>
                 </div>
                 <svg onClick={() => onRemoveStory(story._id)} aria-label="More options" className="icon options" color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" role="img" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="1.5"></circle>
@@ -93,9 +95,9 @@ export function StoryPreview({ story }) {
                 <span className='caption-txt'> <LongTxt txt={story.txt} /></span>
             </h2>
             <h2 className='comments'>
-            {story.comments.length > 2 && <span className='view-comments'>View all {story.comments.length} comments</span>}
-            {(story.comments.length > 0 && story.comments.length < 3) && <p><a className='author'>{story.comments[0].by}</a> <LongTxt txt={story.comments[0].txt} /></p>}
-            {(story.comments.length > 1 && story.comments.length < 3) && <p><a className='author'>{story.comments[1].by}</a> <LongTxt txt={story.comments[1].txt} /></p>}
+                {story.comments.length > 2 && <span className='view-comments'>View all {story.comments.length} comments</span>}
+                {(story.comments.length > 0 && story.comments.length < 3) && <p><a className='author'>{story.comments[0].by}</a> <LongTxt txt={story.comments[0].txt} /></p>}
+                {(story.comments.length > 1 && story.comments.length < 3) && <p><a className='author'>{story.comments[1].by}</a> <LongTxt txt={story.comments[1].txt} /></p>}
             </h2>
             <CommentForm comment={comment} setComment={setComment} addStoryComment={addStoryComment} />
             <div className='story-divider'></div>

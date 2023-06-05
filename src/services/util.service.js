@@ -6,7 +6,8 @@ export const utilService = {
     randomPastTime,
     saveToStorage,
     loadFromStorage,
-    getTimeString
+    getTimeString,
+    getDate
 }
 
 function makeId(length = 6) {
@@ -85,16 +86,32 @@ function getTimeString(date) {
     const diff = now - date
     
     //by milliseconds:
+    const min = 60000
+    const hour = 3600000
     const day = 86400000
     const week = 604800000
 
+    // const month = getMonthName(date)
+    // const monthDay = date.getDate()
+    // const hours = padNum(date.getHours())
+    // const minutes = padNum(date.getMinutes())
+
+    // let formattedDate = (diff > week) ? `${monthDay} ${month}` :
+    //     (diff > day) ? `${getDayName(date, 'en-GB')}` : `${hours}:${minutes}`
+    let formattedDate = (diff > week) ? `${Math.floor(diff / week)}w` :
+        (diff > day) ? `${Math.floor(diff / day)}d` : (diff > hour) ? `${Math.floor(diff / hour)}h` : (diff > min) ? `${Math.floor(diff / min)}m` : `1m`
+
+    return formattedDate
+}
+
+function getDate (date) {
+    date = new Date(date)
+
+    const year = date.getFullYear()
     const month = getMonthName(date)
     const monthDay = date.getDate()
-    const hours = padNum(date.getHours())
-    const minutes = padNum(date.getMinutes())
 
-    let formattedDate = (diff > week) ? `${monthDay} ${month}` :
-        (diff > day) ? `${getDayName(date, 'en-GB')}` : `${hours}:${minutes}`
+    let formattedDate = `${monthDay} ${month}, ${year}`
 
     return formattedDate
 }
