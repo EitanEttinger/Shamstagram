@@ -23,14 +23,14 @@ function post(entityType, newEntity) {
     newEntity = JSON.parse(JSON.stringify(newEntity))    
     newEntity._id = _makeId()
     return query(entityType).then(entities => {
-        entities.push(newEntity)
+        entities.unshift(newEntity)
         _save(entityType, entities)
         return newEntity
     })
 }
 
 function put(entityType, updatedEntity) {
-    updatedEntity = JSON.parse(JSON.stringify(updatedEntity))    
+    updatedEntity = JSON.parse(JSON.stringify(updatedEntity))
     return query(entityType).then(entities => {
         const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
         if (idx < 0) throw new Error(`Update failed, cannot find entity with id: ${updatedEntity._id} in: ${entityType}`)

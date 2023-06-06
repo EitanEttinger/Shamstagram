@@ -6,21 +6,22 @@ import routes from './routes'
 import { NavBar } from './cmps/nav-bar'
 import { AppFooter } from './cmps/app-footer'
 import { UserDetails } from './pages/user-details'
-// import { toggleAddMenu } from './cmps/story-edit.jsx'
+import { toggleAddMenu, StoryEdit } from './cmps/story-edit.jsx'
 
 export function RootCmp() {
 
     return (
-        // <div onClick={toggleAddMenu} className="main-container">
         <div className="main-container">
+        {/* <div className="main-container"> */}
             <NavBar />
+            <div onClick={toggleAddMenu}  className='background-screen'></div>
             <main className="curr-page">
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     <Route path="user/:id" element={<UserDetails />} />
                 </Routes>
             </main>
-            <div className='story-edit-container'></div>
+            <StoryEdit />
             <AppFooter />
         </div>
     )
