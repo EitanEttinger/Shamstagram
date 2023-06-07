@@ -37,6 +37,6 @@ export function StoryEdit() {
 }
 
 
-export function toggleAddMenu() {
+export function toggleAddMenu(ev) {
     document.body.classList.toggle('edit-menu-open');
 }

@@ -12,9 +12,8 @@ export function RootCmp() {
 
     return (
         <div className="main-container">
-        {/* <div className="main-container"> */}
             <NavBar />
-            <div onClick={toggleAddMenu}  className='background-screen'></div>
+            <div onClick={toggleAddMenu} className='background-screen'></div>
             <main className="curr-page">
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
