@@ -1,5 +1,5 @@
 import { HomePage } from './pages/home-page.jsx'
-import { AboutUs } from './pages/about-us.jsx'
+import { Profile } from './pages/profile.jsx'
 // import { ReviewIndex } from './pages/review-index.jsx'
 import { ChatApp } from './pages/chat-app.jsx'
 // import { AdminApp } from './pages/admin-app.jsx'
@@ -22,9 +22,9 @@ const routes = [
         label: 'Chat'
     },
     {
-        path: 'about',
-        component: <AboutUs />,
-        label: 'About us'
+        path: 'profile',
+        component: <Profile />,
+        label: 'Profile'
     },
     // {
     //     path: 'admin',

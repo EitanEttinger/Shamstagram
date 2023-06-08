@@ -67,7 +67,7 @@ function SplitPane(props) {
 }
 
 
-export function AboutUs() {
+export function Profile() {
     const [count, setCount] = useState(33)
 
     function onTellMeMore() {
@@ -75,7 +75,7 @@ export function AboutUs() {
     }
     return (
         <section className='profile'>
-            {/* <h2>About Us</h2> */}
+            {/* <h2>Profile</h2> */}
             <FancyBox onClose={() => console.log('ok, closing')}>
                 <h1>Profile</h1>
                 <img src="./assets/img/Eitan.jpg" alt="profile-img" />
