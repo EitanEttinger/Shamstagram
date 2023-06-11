@@ -1,48 +1,8 @@
 .nav-bar {
-    // background-color: pink;
     padding: 10px;
 
     position: fixed;
     left: 0;
-
-    .user-info {
-        // background-color: $clr2;
-        // padding: 2px 8px;
-        // padding-left: 100px;
-        // color: $clr1;
-
-        img {
-            // width: 32px;
-            // height: 32px;
-            // border-radius: 50%;
-            // object-fit: cover;
-        }
-
-        .btn-link {
-            // color: $clr2;
-        }
-    }
-
-    nav {
-        font-size: .8em;
-        background-color: white;
-        padding: 5px;
-
-    }
-
-    nav a:first-child {
-        // margin-right: 30px;
-    }
-
-    nav a:not(:first-child) {
-        // border-top: 1px solid $clr1;
-        // padding: 0 5px;
-        // margin: 10px;
-    }
-
-    nav .active {
-        // color: $clr1;
-    }
 
     .header-logo {
         margin-inline-start: 10px;
@@ -64,6 +24,12 @@
 
             &:hover {
                 background-color: gray;
+            }
+        }
+
+        .txt-navbar{
+            &.menu-open {
+                display: none;
             }
         }
     
