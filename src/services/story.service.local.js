@@ -69,12 +69,12 @@ async function addStoryMsg(storyId, txt) {
 
 function getEmptyStory() {
     // const eh = Date.now()
-    const txt = `🔵🔴 | “Messi will decide next week”`
+    // const txt = `🔵🔴 | “Messi will decide next week”`
     
     return {
         by: 'fabriziorom',
-        img: messi,
-        txt ,
+        // imgUrl: '',
+        txt: '',
         time: Date.now(),
         comments: [
             {
@@ -89,7 +89,7 @@ function getEmptyStory() {
         liked: [
             {
              id: 'u101',
-             by: 'fazil_f_a_i_z_i'   
+             by: 'dipeshpal38'   
             },
             {
              id: 'u102',

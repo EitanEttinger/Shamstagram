@@ -67,7 +67,7 @@ function getEmptyStory() {
         liked: [
             {
              id: 'u101',
-             by: 'fazil_f_a_i_z_i'   
+             by: 'dipeshpal38'   
             },
             {
              id: 'u102',

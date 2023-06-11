@@ -63,7 +63,7 @@ export function StoryPreview({ story }) {
                     <circle cx="18" cy="12" r="1.5"></circle>
                 </svg>
             </section>
-            <img src={story.img} />
+            <img src={story.imgUrl} />
             <div className='buttons flex'>
                 {/* <AiOutlineHeart />
                     <HiOutlineChatBubbleOvalLeft style={{ transform: 'scaleX(-1)'}} />
