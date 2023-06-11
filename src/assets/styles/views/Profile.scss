@@ -1,5 +1,20 @@
 .profile {
     margin-inline-start: 160px;
+
+    .post-preview {
+        display: inline-block;
+
+        background-color: white;
+        color: black;
+        padding: 5px;
+        margin: 3px;
+    }
+    
+    .bla {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
 }
 
 .fancy-box {
@@ -32,12 +47,6 @@
     transition: all 300ms ease-in;
 }
 
-.proj-preview {
-    background-color: white;
-    color: black;
-    padding: 5px;
-    margin: 3px;
-}
 
 
 

@@ -21,22 +21,22 @@ function Contacts() {
     </section>
 }
 
-function Projects() {
-    const [projs, setProjs] = useState(['Puki Post', 'Muki Post'])
-    const projList = projs.map((proj, idx) => (
-        <article className="proj-preview" key={proj} onClick={(ev) => {
+function Posts() {
+    const [posts, setPosts] = useState(['Puki Post', 'Muki Post'])
+    const postList = posts.map((post, idx) => (
+        <article className="post-preview" key={post} onClick={(ev) => {
             ev.stopPropagation();
-            setProjs(projs.filter(p => p !== proj))
+            setPosts(posts.filter(p => p !== post))
         }}>
-            {proj}
+            {post}
         </article>
     ))
     return <section style={{ minHeight: '50vh', backgroundColor: 'white' }}>
         <h2>Posts</h2>
-        {projList}
+        {postList}
         <button onClick={ev => {
             ev.stopPropagation();
-            setProjs([...projs, 'Babu Post' + Date.now() % 100])
+            setPosts([...posts, 'Babu Post' + Date.now() % 100])
         }}>Add</button>
     </section>
 }
@@ -46,12 +46,10 @@ function SplitPane(props) {
     const [width, setWidth] = useState(30)
 
     if (false && width === 60) {
-        throw new Error('Projects cannot load')
+        throw new Error('Posts cannot load')
     }
     return (
-        <div className="split-pane" style={{
-            display: 'flex'
-        }}>
+        <div className="split-pane">
             <div style={{ width: width + '%' }} onClick={() => {
                 if (width + 10 <= 100) setWidth(width + 10)
             }}>
@@ -75,21 +73,26 @@ export function Profile() {
     }
     return (
         <section className='profile'>
-            {/* <h2>Profile</h2> */}
-            <FancyBox onClose={() => console.log('ok, closing')}>
-                <h1>Profile</h1>
-                <img src="./assets/img/Eitan.jpg" alt="profile-img" />
-                <h2>eitanesta8</h2>
+            {/* <FancyBox onClose={() => console.log('ok, closing')}>
+            <button onClick={onTellMeMore}>Tell me More</button>
+            </FancyBox> */}
+
+            <img src="./assets/img/Eitan.jpg" alt="profile-img" />
+            <div className='flex'>
+                <p>eitanesta8</p>
                 <button>Edit profile</button>
                 <button><AiFillSetting /> options</button>
+            </div>
+
+            <div className='flex'>
                 <h3>117 posts</h3>
                 <h3>{count.toLocaleString()} Followers</h3>
                 <h3>3333 following</h3>
-                <h3>Eitan Ettinger: Bla Bla</h3>
-                <button onClick={onTellMeMore}>Tell me More</button>
-            </FancyBox>
+            </div>
 
-            <Projects />
+            <h3>Eitan Ettinger: Bla Bla</h3>
+
+            <Posts className='bla' />
 
             {/* It was here before: */}
             {/* <SplitPane
@@ -97,7 +100,7 @@ export function Profile() {
                     <Contacts />
                 }
                 right={
-                    <Projects />
+                    <Posts />
                 } /> */}
 
         </section>
