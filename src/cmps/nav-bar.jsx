@@ -14,6 +14,8 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { MdOutlineAddBox } from 'react-icons/md'
 import { FaRegSmileWink } from 'react-icons/fa'
 import { HiOutlineMenu } from 'react-icons/hi'
+import imgUrlEitan from '../assets/img/Eitan.jpg'
+
 
 export function NavBar() {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -56,7 +58,7 @@ export function NavBar() {
                 <NavLink key='chat' to='chat'><button> <span className='icon-navbar'><SlPaperPlane /></span><span className='txt-navbar'> Messages</span></button></NavLink>
                 <button> <span className='icon-navbar'><AiOutlineHeart /></span><span className='txt-navbar'> Notifications</span></button>
                 <button onClick={toggleAddMenu}> <span className='icon-navbar'><MdOutlineAddBox /></span> <span className='txt-navbar'>Create</span></button>
-                <NavLink key='profile' to='profile'><button> <span className='icon-navbar'><FaRegSmileWink /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
+                <NavLink key='profile' to='profile'><button> <span className='icon-navbar'><img className='profile-img' src={imgUrlEitan} alt={`${imgUrlEitan}`} /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
                 <button className='more-btn'> <span className='icon-navbar'><HiOutlineMenu /></span><span className='txt-navbar'> more</span></button>
             </div>
 

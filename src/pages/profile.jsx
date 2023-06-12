@@ -2,68 +2,50 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { AiFillSetting } from 'react-icons/ai'
+// import { HiOutlineSquares2X2 } from 'react-icons/hi'
+import { MdOndemandVideo } from 'react-icons/md'
+import { CgBookmark } from 'react-icons/cg'
+import { BsGrid3X3, BsPersonSquare } from 'react-icons/bs'
 
-function FancyBox(props) {
-    return <div className="fancy-box">
-        <button style={{ float: 'right' }} onClick={props.onClose}>x</button>
-        {props.children}
-    </div>
-}
+import imgUrlEitan from '../assets/img/Eitan.jpg'
+import imgUrlBee from '../assets/img/Bee.jpg'
+import imgUrlDesert from '../assets/img/Desert.jpg'
+import imgUrlSea from '../assets/img/Sea.jpg'
+import imgUrlSnow from '../assets/img/Snow.jpg'
+import imgUrlTrees from '../assets/img/Trees.jpg'
 
-FancyBox.propTypes = {
-    onClose: PropTypes.func.isRequired
-}
-
-function Contacts() {
-    return <section style={{ height: '50vh', backgroundColor: 'pink' }}>
-        <h2>Contacts</h2>
-        <p>Click me</p>
-    </section>
-}
 
 function Posts() {
-    const [posts, setPosts] = useState(['Puki Post', 'Muki Post'])
+    const [posts, setPosts] = useState([imgUrlBee, imgUrlDesert, imgUrlSea, imgUrlSnow])
     const postList = posts.map((post, idx) => (
-        <article className="post-preview" key={post} onClick={(ev) => {
+        <img src={post} alt={`${post}`} className="post-preview" key={post} onClick={(ev) => {
             ev.stopPropagation();
             setPosts(posts.filter(p => p !== post))
-        }}>
-            {post}
-        </article>
+        }} />
+        // <article className="post-preview" key={post} onClick={(ev) => {
+        //     ev.stopPropagation();
+        //     setPosts(posts.filter(p => p !== post))
+        // }}>
+        //     {post}
+        // </article>
     ))
     return <section style={{ minHeight: '50vh', backgroundColor: 'white' }}>
-        <h2>Posts</h2>
-        {postList}
+        <div className='btns-filter-posts flex justify-space-around'>
+            <h4><BsGrid3X3 /> POSTS</h4>
+            <h4><MdOndemandVideo /> REELS</h4>
+            <h4><CgBookmark /> SAVED</h4>
+            <h4><BsPersonSquare /> TAGGED</h4>
+
+        </div>
+        <div className='post-list'>
+            {postList}
+        </div>
         <button onClick={ev => {
             ev.stopPropagation();
-            setPosts([...posts, 'Babu Post' + Date.now() % 100])
+            setPosts([...posts, imgUrlTrees])
         }}>Add</button>
     </section>
 }
-
-function SplitPane(props) {
-
-    const [width, setWidth] = useState(30)
-
-    if (false && width === 60) {
-        throw new Error('Posts cannot load')
-    }
-    return (
-        <div className="split-pane">
-            <div style={{ width: width + '%' }} onClick={() => {
-                if (width + 10 <= 100) setWidth(width + 10)
-            }}>
-                {props.left}
-            </div>
-            <div style={{ flex: 1 }} onClick={() => {
-                if (width > 10) setWidth(width - 10)
-            }}>
-                {props.right}
-            </div>
-        </div>
-    )
-}
-
 
 export function Profile() {
     const [count, setCount] = useState(33)
@@ -73,35 +55,31 @@ export function Profile() {
     }
     return (
         <section className='profile'>
-            {/* <FancyBox onClose={() => console.log('ok, closing')}>
-            <button onClick={onTellMeMore}>Tell me More</button>
-            </FancyBox> */}
 
-            <img src="./assets/img/Eitan.jpg" alt="profile-img" />
-            <div className='flex'>
-                <p>eitanesta8</p>
-                <button>Edit profile</button>
-                <button><AiFillSetting /> options</button>
+            <div flex >
+                <div>
+                    <img src={imgUrlEitan} className='profile-img' alt="profile-img" />
+
+                </div>
+                <div>
+
+                    <div className='flex justify-space-between'>
+                        <p>eitanesta8</p>
+                        <button>Edit profile</button>
+                        <button><AiFillSetting /></button>
+                    </div>
+
+                    <div className='flex justify-space-between'>
+                        <h3>4 posts</h3>
+                        <h3>352 Followers</h3>
+                        <h3>1,331 following</h3>
+                    </div>
+
+                    <h3>Eitan Ettinger: Bla Bla</h3>
+                </div>
             </div>
 
-            <div className='flex'>
-                <h3>117 posts</h3>
-                <h3>{count.toLocaleString()} Followers</h3>
-                <h3>3333 following</h3>
-            </div>
-
-            <h3>Eitan Ettinger: Bla Bla</h3>
-
-            <Posts className='bla' />
-
-            {/* It was here before: */}
-            {/* <SplitPane
-                left={
-                    <Contacts />
-                }
-                right={
-                    <Posts />
-                } /> */}
+            <Posts />
 
         </section>
     )
