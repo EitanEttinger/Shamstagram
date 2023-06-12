@@ -31,6 +31,9 @@
     &.justify-space-around {
         justify-content: space-around;
     }
+    &.justify-space-evenly {
+        justify-content: space-evenly;
+    }
 }
 
 // Media helpers

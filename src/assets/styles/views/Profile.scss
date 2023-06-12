@@ -11,6 +11,10 @@
             border-radius: 50%;
     }
 
+    .user-info-container {
+        flex-grow: 1;
+    }
+
     button {
         background-color: white;
         color: black;      
