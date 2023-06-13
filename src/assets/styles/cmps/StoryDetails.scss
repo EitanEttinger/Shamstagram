@@ -1,0 +1,86 @@
+.nested-routes {
+    .story-details-container {
+        display: flex;
+        box-shadow: -1px 1px 20px rgb(0 0 0 / 50%);
+        text-align: center;
+        color: black;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 25px;
+        position: fixed;
+        height: clamp(391px, calc(100vh - 40px), 921px);
+        // width: clamp(688px, calc(100vw - 40px), 1090px);
+        // min-height: 391px; 
+        // max-height: 898px;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 1);
+
+    }
+
+    .background-screen {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.7);
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+    .img-container {
+        width: calc(clamp(688px, calc(100vw - 40px), 1090px) - 340px);
+        padding: 0;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    .post-info {
+        width: 340px;
+        border-inline-start: 1px solid $clr11;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .post-user-info {
+            display: flex;
+            flex-direction: column;
+            padding: 0 16px;
+            border-block-end: 1px solid $clr11;
+        }
+
+        section {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            height: 60px;
+
+            img {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span {
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+        
+        .icon {
+            height: 24px;
+            width: 24px;
+            cursor: pointer;
+        }
+    }
+}

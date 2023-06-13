@@ -2,6 +2,7 @@ import { HomePage } from './pages/home-page.jsx'
 import { Profile } from './pages/profile.jsx'
 // import { ReviewIndex } from './pages/review-index.jsx'
 import { ChatApp } from './pages/chat-app.jsx'
+import { StoryDetails } from './cmps/story-details.jsx'
 // import { AdminApp } from './pages/admin-app.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
@@ -22,9 +23,14 @@ const routes = [
         label: 'Chat'
     },
     {
-        path: 'profile',
+        path: 'profile/:userId',
         component: <Profile />,
         label: 'Profile'
+    },
+    {
+        path: 'story/:storyId',
+        component: <StoryDetails />,
+        label: 'Story'
     },
     // {
     //     path: 'admin',

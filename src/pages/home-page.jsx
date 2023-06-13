@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { loadStorys } from '../store/story.actions.js'
 import { useForm } from '../customHooks/useForm.js'
+import { Outlet, useNavigate } from "react-router-dom";
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 // import { storyService } from '../services/story.service.js'
@@ -39,7 +40,7 @@ export function HomePage() {
 
     return (
         <main className='home-page'>
-            {/* <button onClick={onAddStory}>Add Story</button> */}
+            <Outlet />
             <ul className="story-list">
                 {storys.map(story =>
                     <StoryPreview story={story} key={story._id}></StoryPreview>)
