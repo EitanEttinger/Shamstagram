@@ -1,9 +1,6 @@
 .profile {
     background-color: white;
     color: black;
-
-    margin-inline-start: 160px;
-
     
     .profile-img {
             height: 150px;
@@ -17,7 +14,13 @@
 
     button {
         background-color: white;
-        color: black;      
+        color: black;    
+    }
+
+    .edit-btn {
+        background-color: grey;
+        border: 1px solid black;
+        border-radius: 10px;
     }
 
     .btns-filter-posts {

@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-// import { AiFillSetting } from 'react-icons/ai'
-// import { MdOndemandVideo } from 'react-icons/md'
-// import { CgBookmark } from 'react-icons/cg'
-// import { BsGrid3X3, BsPersonSquare } from 'react-icons/bs'
-
 import imgUrlEitan from '../assets/img/Eitan.jpg'
 import imgUrlBee from '../assets/img/Bee.jpg'
 import imgUrlDesert from '../assets/img/Desert.jpg'
@@ -36,10 +31,10 @@ function Posts() {
     ))
     return <section style={{ minHeight: '50vh', backgroundColor: 'white' }}>
         <div className='btns-filter-posts flex justify-space-evenly'>
-            <p>{postsIcon} POSTS</p>
-            <p>{reelsIcon} REELS</p>
-            <p>{savedIcon} SAVED</p>
-            <p>{taggedIcon} TAGGED</p>
+            <span>{postsIcon} POSTS</span>
+            <span>{reelsIcon} REELS</span>
+            <span>{savedIcon} SAVED</span>
+            <span>{taggedIcon} TAGGED</span>
         </div>
         <div className='post-list'>
             {postList}
@@ -66,18 +61,18 @@ export function Profile() {
                 </div>
                 <div className='user-info-container'>
                     <div className='flex justify-space-around'>
-                        <p>eitanesta8</p>
-                        <button>Edit profile</button>
+                        <span>eitanesta8</span>
+                        <button className='edit-btn'>Edit profile</button>
                         <button>{optionsIcon}</button>
                     </div>
 
                     <div className='flex justify-space-around'>
-                        <p>4 posts</p>
-                        <p>352 Followers</p>
-                        <p>1,331 following</p>
+                        <span>4 posts</span>
+                        <span>352 Followers</span>
+                        <span>1,331 following</span>
                     </div>
 
-                    <p>Eitan Ettinger: Bla Bla</p>
+                    <span>Eitan Ettinger</span>
                 </div>
             </div>
 
