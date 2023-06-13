@@ -29,13 +29,12 @@ export function StoryEdit() {
         } catch (err) {
             showErrorMsg('Cannot add story')
         }
-        toggleAddMenu()
+        closeAddMenu()
     }
 
     function onUploaded(imgUrl) {
         // onAddStory(imgUrl)
-        console.log('document.body.classList :>> ', document.body.classList);
-        setCreatedStory(prevState => ({ ...prevState, imgUrl: [imgUrl] }))
+        setCreatedStory(prevState => ({ ...prevState, imgUrl: [imgUrl], time: Date.now() }))
         // if (document.body.classList.includes('edit-post-open')) console.log('object');
         // document.body.classList.add('edit-post-open')   
         // toggleAddMenu()
@@ -78,7 +77,7 @@ export function StoryEdit() {
                             </div>
                             <div className='post-info'>
                                 <div className='post-user-info'>
-                                    <section>
+                                    <section className='user-info'>
                                         {/* <img src={logedinUser.imgUrl} /> */}
                                         <span>{createdStory.by}</span>
                                     </section>

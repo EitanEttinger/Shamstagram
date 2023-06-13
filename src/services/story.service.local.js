@@ -73,11 +73,13 @@ function getEmptyStory() {
     
     return {
         by: 'fabriziorom',
+        id: _makeId(),
         // imgUrl: '',
         txt: '',
-        time: Date.now(),
+        time: 0,
         comments: [
             {
+            id: _makeId(),
             by: 'liveherewego',
             txt: 'Like this if you feel Leo will become Barça player 🔵🔴👀'
             },
@@ -106,11 +108,12 @@ function createComment(txt, user) {
     return {
       id: _makeId(),
       by: user,
+      time: Date.now(),
       txt
     }
 }
 
-function _makeId(length = 4) {
+function _makeId(length = 6) {
     var text = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
     for (var i = 0; i < length; i++) {
