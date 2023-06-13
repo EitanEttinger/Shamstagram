@@ -1,69 +1,55 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { AiFillSetting } from 'react-icons/ai'
+// import { AiFillSetting } from 'react-icons/ai'
+// import { MdOndemandVideo } from 'react-icons/md'
+// import { CgBookmark } from 'react-icons/cg'
+// import { BsGrid3X3, BsPersonSquare } from 'react-icons/bs'
 
-function FancyBox(props) {
-    return <div className="fancy-box">
-        <button style={{ float: 'right' }} onClick={props.onClose}>x</button>
-        {props.children}
-    </div>
-}
+import imgUrlEitan from '../assets/img/Eitan.jpg'
+import imgUrlBee from '../assets/img/Bee.jpg'
+import imgUrlDesert from '../assets/img/Desert.jpg'
+import imgUrlSea from '../assets/img/Sea.jpg'
+import imgUrlSnow from '../assets/img/Snow.jpg'
+import imgUrlTrees from '../assets/img/Trees.jpg'
 
-FancyBox.propTypes = {
-    onClose: PropTypes.func.isRequired
-}
-
-function Contacts() {
-    return <section style={{ height: '50vh', backgroundColor: 'pink' }}>
-        <h2>Contacts</h2>
-        <p>Click me</p>
-    </section>
-}
+// ICONS:
+const optionsIcon = <svg color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Options</title><circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M14.232 3.656a1.269 1.269 0 0 1-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 0 1-.796.66m-.001 16.688a1.269 1.269 0 0 1 .796.66l.505.996h1.862l.505-.996a1.269 1.269 0 0 1 .796-.66M3.656 9.768a1.269 1.269 0 0 1-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 0 1 .66.796m16.688-.001a1.269 1.269 0 0 1 .66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 0 1-.66-.796M7.678 4.522a1.269 1.269 0 0 1-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 0 1-.096 1.03m11.8 11.799a1.269 1.269 0 0 1 1.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 0 1 .096-1.03m-14.956.001a1.269 1.269 0 0 1 .096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 0 1 1.03.096m11.799-11.8a1.269 1.269 0 0 1-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 0 1-1.03-.096" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
+const postsIcon = <svg color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" height="12" role="img" viewBox="0 0 24 24" width="12"><rect fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="18" x="3" y="3"></rect><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="9.015" x2="9.015" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="14.985" x2="14.985" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="9.015" y2="9.015"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="14.985" y2="14.985"></line></svg>
+const reelsIcon = <svg color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" height="12" role="img" viewBox="0 0 24 24" width="12"><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="2.049" x2="21.95" y1="7.002" y2="7.002"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="13.504" x2="16.362" y1="2.001" y2="7.002"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="7.207" x2="10.002" y1="2.11" y2="7.002"></line><path d="M2 12.001v3.449c0 2.849.698 4.006 1.606 4.945.94.908 2.098 1.607 4.946 1.607h6.896c2.848 0 4.006-.699 4.946-1.607.908-.939 1.606-2.096 1.606-4.945V8.552c0-2.848-.698-4.006-1.606-4.945C19.454 2.699 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.546 2 5.704 2 8.552Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M9.763 17.664a.908.908 0 0 1-.454-.787V11.63a.909.909 0 0 1 1.364-.788l4.545 2.624a.909.909 0 0 1 0 1.575l-4.545 2.624a.91.91 0 0 1-.91 0Z" fill-rule="evenodd"></path></svg>
+const savedIcon = <svg color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" height="12" role="img" viewBox="0 0 24 24" width="12"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+const taggedIcon = <svg color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" height="12" role="img" viewBox="0 0 24 24" width="12"><path d="M10.201 3.797 12 1.997l1.799 1.8a1.59 1.59 0 0 0 1.124.465h5.259A1.818 1.818 0 0 1 22 6.08v14.104a1.818 1.818 0 0 1-1.818 1.818H3.818A1.818 1.818 0 0 1 2 20.184V6.08a1.818 1.818 0 0 1 1.818-1.818h5.26a1.59 1.59 0 0 0 1.123-.465Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M18.598 22.002V21.4a3.949 3.949 0 0 0-3.948-3.949H9.495A3.949 3.949 0 0 0 5.546 21.4v.603" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="12.072" cy="11.075" fill="none" r="3.556" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle></svg>
 
 function Posts() {
-    const [posts, setPosts] = useState(['Puki Post', 'Muki Post'])
+    const [posts, setPosts] = useState([imgUrlBee, imgUrlDesert, imgUrlSea, imgUrlSnow])
     const postList = posts.map((post, idx) => (
-        <article className="post-preview" key={post} onClick={(ev) => {
+        <img src={post} alt={`${post}`} className="post-preview" key={post} onClick={(ev) => {
             ev.stopPropagation();
             setPosts(posts.filter(p => p !== post))
-        }}>
-            {post}
-        </article>
+        }} />
+        // <article className="post-preview" key={post} onClick={(ev) => {
+        //     ev.stopPropagation();
+        //     setPosts(posts.filter(p => p !== post))
+        // }}>
+        //     {post}
+        // </article>
     ))
     return <section style={{ minHeight: '50vh', backgroundColor: 'white' }}>
-        <h2>Posts</h2>
-        {postList}
+        <div className='btns-filter-posts flex justify-space-evenly'>
+            <p>{postsIcon} POSTS</p>
+            <p>{reelsIcon} REELS</p>
+            <p>{savedIcon} SAVED</p>
+            <p>{taggedIcon} TAGGED</p>
+        </div>
+        <div className='post-list'>
+            {postList}
+        </div>
         <button onClick={ev => {
             ev.stopPropagation();
-            setPosts([...posts, 'Babu Post' + Date.now() % 100])
+            setPosts([...posts, imgUrlTrees])
         }}>Add</button>
     </section>
 }
-
-function SplitPane(props) {
-
-    const [width, setWidth] = useState(30)
-
-    if (false && width === 60) {
-        throw new Error('Posts cannot load')
-    }
-    return (
-        <div className="split-pane">
-            <div style={{ width: width + '%' }} onClick={() => {
-                if (width + 10 <= 100) setWidth(width + 10)
-            }}>
-                {props.left}
-            </div>
-            <div style={{ flex: 1 }} onClick={() => {
-                if (width > 10) setWidth(width - 10)
-            }}>
-                {props.right}
-            </div>
-        </div>
-    )
-}
-
 
 export function Profile() {
     const [count, setCount] = useState(33)
@@ -73,35 +59,29 @@ export function Profile() {
     }
     return (
         <section className='profile'>
-            {/* <FancyBox onClose={() => console.log('ok, closing')}>
-            <button onClick={onTellMeMore}>Tell me More</button>
-            </FancyBox> */}
-
-            <img src="./assets/img/Eitan.jpg" alt="profile-img" />
-            <div className='flex'>
-                <p>eitanesta8</p>
-                <button>Edit profile</button>
-                <button><AiFillSetting /> options</button>
-            </div>
 
             <div className='flex'>
-                <h3>117 posts</h3>
-                <h3>{count.toLocaleString()} Followers</h3>
-                <h3>3333 following</h3>
+                <div>
+                    <img src={imgUrlEitan} className='profile-img' alt="profile-img" />
+                </div>
+                <div className='user-info-container'>
+                    <div className='flex justify-space-around'>
+                        <p>eitanesta8</p>
+                        <button>Edit profile</button>
+                        <button>{optionsIcon}</button>
+                    </div>
+
+                    <div className='flex justify-space-around'>
+                        <p>4 posts</p>
+                        <p>352 Followers</p>
+                        <p>1,331 following</p>
+                    </div>
+
+                    <p>Eitan Ettinger: Bla Bla</p>
+                </div>
             </div>
 
-            <h3>Eitan Ettinger: Bla Bla</h3>
-
-            <Posts className='bla' />
-
-            {/* It was here before: */}
-            {/* <SplitPane
-                left={
-                    <Contacts />
-                }
-                right={
-                    <Posts />
-                } /> */}
+            <Posts />
 
         </section>
     )

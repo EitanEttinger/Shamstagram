@@ -32,7 +32,7 @@ export function RootCmp() {
                 </Routes>
             </main>
             <StoryEdit />
-            <AppFooter />
+            {/* <AppFooter /> */}
         </div>
     )
 }
