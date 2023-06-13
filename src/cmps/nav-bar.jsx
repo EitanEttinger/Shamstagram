@@ -56,7 +56,7 @@ export function NavBar() {
                 <NavLink key='chat' to='chat'><button> <span className='icon-navbar'><SlPaperPlane /></span><span className='txt-navbar'> Messages</span></button></NavLink>
                 <button> <span className='icon-navbar'><AiOutlineHeart /></span><span className='txt-navbar'> Notifications</span></button>
                 <button onClick={toggleAddMenu}> <span className='icon-navbar'><MdOutlineAddBox /></span> <span className='txt-navbar'>Create</span></button>
-                <NavLink key='profile' to='profile'><button> <span className='icon-navbar'><FaRegSmileWink /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
+                <NavLink key='profile' to={`/profile/${user._id}`}><button> <span className='icon-navbar'><FaRegSmileWink /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
                 <button className='more-btn'> <span className='icon-navbar'><HiOutlineMenu /></span><span className='txt-navbar'> more</span></button>
             </div>
 
