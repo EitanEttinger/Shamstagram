@@ -29,7 +29,7 @@ export function StoryEdit() {
         } catch (err) {
             showErrorMsg('Cannot add story')
         }
-        toggleAddMenu()
+        closeAddMenu()
     }
 
     function onUploaded(imgUrl) {

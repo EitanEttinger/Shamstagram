@@ -3,16 +3,16 @@
 
     height: 100vh;
     width: 220px;
-    border-inline-end: 2px solid gray;
+    border-inline-end: 2px solid rgb(222, 222, 222);
 
     position: fixed;
     left: 0;
     top: 0;
 
-    
+
     .header-btns-container {
         height: 100%;
-        
+
         .header-logo {
             height: 32px;
             width: 192px;
@@ -24,7 +24,7 @@
             background-color: white;
             margin-block-start: 20px;
             border-radius: 10px;
-    
+
             font-size: 16px;
             color: black;
             text-align: left;
@@ -38,9 +38,10 @@
             height: 24px;
             width: 24px;
         }
-        
-        .txt-navbar{
+
+        .txt-navbar {
             line-height: 24px;
+            padding-inline-start: 16px;
 
             &.menu-open {
                 display: none;
@@ -51,8 +52,9 @@
             height: 24px;
             width: 24px;
             border-radius: 50%;
+            object-fit: cover;
         }
-        
+
         .more-btn {
             position: fixed;
             bottom: 15px;

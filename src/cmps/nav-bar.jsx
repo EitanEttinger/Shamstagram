@@ -65,15 +65,15 @@ export function NavBar() {
                     {logoIconSmall}
                     {logoIconLarge}
                 </div>
-                <NavLink key='/' to='/'><button> <span className='icon-navbar'>{homeIcon}</span><span className='txt-navbar'> Home </span></button></NavLink>
-                {/* <button onClick={toggleSizeMenu}> <span className='icon-navbar'>{searchIcon}</span> <span className='txt-navbar'>Search</span></button> */}
-                {/* <button> <span className='icon-navbar'>{exploreIcon}</span><span className='txt-navbar'> Explore </span></button> */}
-                {/* <button> <span className='icon-navbar'>{reelsIcon}</span><span className='txt-navbar'> Reels</span></button> */}
-                {/* <NavLink key='chat' to='chat'><button onClick={toggleSizeMenu}> <span className='icon-navbar'>{messagesIcon}</span><span className='txt-navbar'> Messages</span></button></NavLink> */}
-                {/* <button onClick={toggleSizeMenu}> <span className='icon-navbar'>{notificationsIcon}</span><span className='txt-navbar'> Notifications</span></button> */}
-                <button onClick={toggleAddMenu}> <span className='icon-navbar'>{createIcon}</span> <span className='txt-navbar'>Create</span></button>
-                <NavLink key='profile' to={`/profile/${user._id}`}><button> <span className='icon-navbar'><img className='profile-img' src={imgUrlEitan} alt={`${imgUrlEitan}`} /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
-                {/* <button className='more-btn'> <span className='icon-navbar'>{moreIcon}</span><span className='txt-navbar'> more</span></button> */}
+                <NavLink key='/' to='/'><button className='flex'> <span className='icon-navbar'>{homeIcon}</span><span className='txt-navbar'> Home </span></button></NavLink>
+                <button className='flex' onClick={toggleSizeMenu}> <span className='icon-navbar'>{searchIcon}</span> <span className='txt-navbar'>Search</span></button>
+                <button className='flex'> <span className='icon-navbar'>{exploreIcon}</span><span className='txt-navbar'> Explore </span></button>
+                <button className='flex'> <span className='icon-navbar'>{reelsIcon}</span><span className='txt-navbar'> Reels</span></button>
+                <NavLink key='chat' to='chat'><button className='flex' onClick={toggleSizeMenu}> <span className='icon-navbar'>{messagesIcon}</span><span className='txt-navbar'> Messages</span></button></NavLink>
+                <button className='flex' onClick={toggleSizeMenu}> <span className='icon-navbar'>{notificationsIcon}</span><span className='txt-navbar'> Notifications</span></button>
+                <button className='flex' onClick={toggleAddMenu}> <span className='icon-navbar'>{createIcon}</span> <span className='txt-navbar'>Create</span></button>
+                <NavLink key='profile' to={`/profile/${user._id}`}><button className='flex'> <span className='icon-navbar'><img className='profile-img' src={imgUrlEitan} alt={`${imgUrlEitan}`} /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
+                <button className='more-btn flex'> <span className='icon-navbar'>{moreIcon}</span><span className='txt-navbar'> more</span></button>
             </div>
 
             {/* {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)} */}

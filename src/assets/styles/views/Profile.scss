@@ -1,42 +1,129 @@
 .profile {
     background-color: white;
     color: black;
-    
-    .profile-img {
+
+    .profile-img-container {
+        width: 292px;
+        margin-inline-end: 30px;
+        padding-inline: auto;
+
+        .profile-img {
             height: 150px;
             width: 150px;
             border-radius: 50%;
+            object-fit: cover;
+        }
     }
 
     .user-info-container {
-        flex-grow: 1;
+        // flex-grow: 1;
+
+        .user-info-line {
+            margin-block-end: 16px;
+        }
+
+        .line-1 {
+            // font-size: 16px;
+            // line-height: 24px;
+
+            .user-name {
+                margin-inline-end: 18px;
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .edit-btn {
+                margin-inline-end: 2px;
+                background-color: rgb(222, 222, 222);
+                border-radius: 10px;
+                padding-inline: 16px;
+
+                font-size: 14px;
+                line-height: 18px;
+            }
+
+        }
+
+        .line-2 {
+            font-size: 18px;
+            line-height: 20px;
+
+            .line-2-item {
+                margin-inline-end: 8px;
+            }
+
+            .line-2-num {
+                font-weight: 600;
+                margin-inline-end: 4px;
+
+            }
+
+            .line-2-txt {
+                font-weight: 400;
+            }
+        }
+
+        .line-3 {
+            font-size: 18px;
+            line-height: 20px;
+
+            .line-3-item {
+                margin-inline-end: 8px;
+            }
+
+            .line-3-full-name {
+                font-weight: 400;
+            }
+
+            .line-3-txt {
+                font-size: 16px;
+                font-weight: 200;
+            }
+        }
     }
 
     button {
         background-color: white;
-        color: black;    
+        color: black;
     }
 
-    .edit-btn {
-        background-color: grey;
-        border: 1px solid black;
-        border-radius: 10px;
-    }
+    .filter-posts-btns {
+        height: 53px;
+        margin-block-start: 70px;
+        border-block-start: 2px solid rgb(222, 222, 222);
 
-    .btns-filter-posts {
-        border-block-start: 2px solid gray;
+        .filter-posts-btn {
+            margin-inline-start: 55px;
+            font-size: 12px;
+            line-height: 18px;
+
+            .posts-btn-icon {
+                color: rgb(115, 115, 115);
+            }
+
+            .posts-btn-txt {
+                margin-inline-start: 6px;
+                color: black;
+            }
+        }
+
+        .filter-posts-btn:first-child {
+            margin-inline-start: 0;
+        }
+
     }
 
     .post-list {
         display: grid;
-        grid-template-columns: repeat(3, 200px);
-        grid-template-rows: 200px;
-        gap: 10px;
+        grid-template-columns: repeat(3, 300px);
+        grid-template-rows: 300px;
+        gap: 4px;
     }
 
     .post-preview {
-        height: 200px;
-        width: 200px;
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
 
         // background-position: center;
         // background-size: cover;
