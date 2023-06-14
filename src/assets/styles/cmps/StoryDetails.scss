@@ -8,8 +8,10 @@
         font-weight: 400;
         line-height: 25px;
         position: fixed;
-        height: clamp(391px, calc(100vh - 40px), 921px);
-        // width: clamp(688px, calc(100vw - 40px), 1090px);
+        // height: clamp(391px, calc(100vh - 40px), 921px);
+        width: clamp(688px, calc(100vw - 40px), 1240px);
+        aspect-ratio: 1.346 / 1;
+        // width: 1240px;
         // min-height: 391px; 
         // max-height: 898px;
         top: 50vh;
@@ -48,7 +50,7 @@
         }
 
         .img-container {
-            width: calc(clamp(688px, calc(100vw - 40px), 1236px) - 500px);
+            // width: calc(clamp(688px, calc(100vw - 40px), 1236px) - 500px);
             padding: 0;
 
             img {
@@ -66,7 +68,7 @@
             line-height: 18px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: black;
-            padding-inline: 16px;
+            padding: 0;
             border-inline-start: 1px solid $clr11;
             flex-direction: column;
             justify-content: space-between;
@@ -121,25 +123,31 @@
 
             .story-header {
                 justify-content: space-between;
-                padding: 14px 0;
+                padding: 14px 16px;
                 border-bottom: 1px solid $clr11;
             }
 
             .comment-container {
                 height: calc(100% - 110px);
-                padding: 0px;
+                padding: 16px;
 
                 .comments-list {
                     width: 100%;
                     flex-grow: 1;
                     padding: 0;
                     gap: 34px;
-                    overflow: auto;
+                    // overflow-x: auto;
+                    overflow-y: auto;
                     border-bottom: 1px solid $clr11;
                 }
 
                 .comment {
                     padding: 0;
+
+                    .story-text {
+                        word-break: break-all;
+                    }
+                    
                     .comment-footer {
                         display: flex;
                         align-items: center;

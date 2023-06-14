@@ -28,7 +28,7 @@ export function RootCmp() {
                     </Route>
                     {/* <Route element={<HomePage />} path="/" /> */}
                     <Route element={<ChatApp />} path="messages" />
-                    <Route element={<Profile />} path="profile/:userId" />
+                    <Route element={<Profile />} path="profile/:username" />
                 </Routes>
             </main>
             <StoryEdit />

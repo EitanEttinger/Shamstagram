@@ -78,11 +78,11 @@ function getEmptyStory() {
         txt: '',
         time: 0,
         comments: [
-            {
-            id: _makeId(),
-            by: 'liveherewego',
-            txt: 'Like this if you feel Leo will become Barça player 🔵🔴👀'
-            },
+            // {
+            // id: _makeId(),
+            // by: 'liveherewego',
+            // txt: 'Like this if you feel Leo will become Barça player 🔵🔴👀'
+            // },
             // {
             //     by: 'd11d0munc3r',
             //     txt: 'Doubt barca have this much money to afford all these players and their wages.'
@@ -90,11 +90,11 @@ function getEmptyStory() {
         ],
         liked: [
             {
-             id: 'u101',
+             id: _makeId(),
              by: 'dipeshpal38'   
             },
             {
-             id: 'u102',
+             id: _makeId(),
              by: 'tees_697'   
             },
         ]

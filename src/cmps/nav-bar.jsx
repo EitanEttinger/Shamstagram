@@ -5,6 +5,8 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import { toggleAddMenu } from '../cmps/story-edit.jsx'
+import { utilService } from '../services/util.service.js'
+import { userService } from '../services/user.service.js'
 
 import imgUrlEitan from '../assets/img/Eitan.jpg'
 
@@ -30,6 +32,8 @@ const moreIconActive = <svg color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24"
 
 
 export function NavBar() {
+    const myUser = { _id: 'abc123', fullname: 'Eitan Ettinger', username: 'eitanesta8', imgUrl: imgUrlEitan, password:'123',}
+    userService.saveLocalUser(myUser)
     const user = useSelector(storeState => storeState.userModule.user)
 
     async function onLogin(credentials) {
@@ -72,7 +76,7 @@ export function NavBar() {
                 <NavLink key='chat' to='chat'><button className='flex' onClick={toggleSizeMenu}> <span className='icon-navbar'>{messagesIcon}</span><span className='txt-navbar'> Messages</span></button></NavLink>
                 <button className='flex' onClick={toggleSizeMenu}> <span className='icon-navbar'>{notificationsIcon}</span><span className='txt-navbar'> Notifications</span></button>
                 <button className='flex' onClick={toggleAddMenu}> <span className='icon-navbar'>{createIcon}</span> <span className='txt-navbar'>Create</span></button>
-                <NavLink key='profile' to={`/profile/${user._id}`}><button className='flex'> <span className='icon-navbar'><img className='profile-img' src={imgUrlEitan} alt={`${imgUrlEitan}`} /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
+                <NavLink key='profile' to={`/profile/${user.username}`}><button className='flex'> <span className='icon-navbar'><img className='profile-img' src={imgUrlEitan} alt={`${imgUrlEitan}`} /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
                 <button className='more-btn flex'> <span className='icon-navbar'>{moreIcon}</span><span className='txt-navbar'> more</span></button>
             </div>
 
