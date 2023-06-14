@@ -50,7 +50,7 @@
         }
 
         .img-container {
-            // width: calc(clamp(688px, calc(100vw - 40px), 1236px) - 500px);
+            aspect-ratio: 1440 / 1790;
             padding: 0;
 
             img {

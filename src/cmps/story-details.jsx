@@ -29,16 +29,16 @@ export function StoryDetails() {
             setStory(storyToShow)
         } catch (err) {
             console.log('Had issues in story details', err)
-            navigate('/')
+            navigate(-1)
         }
     }
 
     function goToProfile(comment) {
-        navigate(`/profile/${comment.by._id}`)
+        navigate(`/${comment.by.username}`)
     }
 
     async function toggleDetailsMenu() {
-        navigate('/')
+        navigate(-1)
         if (document.body.classList[0]) document.body.classList.toggle('details-menu-open');
     }
 
@@ -66,7 +66,7 @@ export function StoryDetails() {
                 <section className='story-info'>
                     <section className='story-header flex'>
                         <div className='story-user-info'>
-                            <a onClick={goToProfile} className='author'>{story.by}</a>
+                            <a onClick={goToProfile} className='author'>{story.by.username}</a>
                             {/* <span title={utilService.getDate(story.time)} className='time'> • {utilService.getTimeString(story.time)}</span> */}
                         </div>
                         <svg aria-label='More options' className='icon options' color='rgb(115, 115, 115)' fill='rgb(115, 115, 115)' role='img' viewBox='0 0 24 24'>
@@ -80,7 +80,7 @@ export function StoryDetails() {
                             <section className='comment'>
                                 <div>
                                     <section>
-                                        <span className='author' onClick={() => goToProfile(story.by._id)}>{story.by}</span>
+                                        <span className='author' onClick={() => goToProfile(story.by._id)}>{story.by.username}</span>
                                         <span className='story-text'>&nbsp;{story.txt}</span>
                                     </section>
                                     <section className='comment-footer'>

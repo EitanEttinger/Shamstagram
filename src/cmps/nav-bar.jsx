@@ -76,7 +76,7 @@ export function NavBar() {
                 <NavLink key='chat' to='chat'><button className='flex' onClick={toggleSizeMenu}> <span className='icon-navbar'>{messagesIcon}</span><span className='txt-navbar'> Messages</span></button></NavLink>
                 <button className='flex' onClick={toggleSizeMenu}> <span className='icon-navbar'>{notificationsIcon}</span><span className='txt-navbar'> Notifications</span></button>
                 <button className='flex' onClick={toggleAddMenu}> <span className='icon-navbar'>{createIcon}</span> <span className='txt-navbar'>Create</span></button>
-                <NavLink key='profile' to={`/profile/${user.username}`}><button className='flex'> <span className='icon-navbar'><img className='profile-img' src={imgUrlEitan} alt={`${imgUrlEitan}`} /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
+                <NavLink key='profile' to={`/${user.username}`}><button className='flex'> <span className='icon-navbar'><img className='profile-img' src={imgUrlEitan} alt={`${imgUrlEitan}`} /></span> <span className='txt-navbar'>Profile</span></button></NavLink>
                 <button className='more-btn flex'> <span className='icon-navbar'>{moreIcon}</span><span className='txt-navbar'> more</span></button>
             </div>
 
