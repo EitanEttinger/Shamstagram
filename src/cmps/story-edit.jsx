@@ -79,7 +79,7 @@ export function StoryEdit() {
                                 <div className='post-user-info'>
                                     <section className='user-info'>
                                         {/* <img src={logedinUser.imgUrl} /> */}
-                                        <span>{createdStory.by}</span>
+                                        <span>{createdStory.by.username}</span>
                                     </section>
                                     <form>
                                         <textarea type='text'

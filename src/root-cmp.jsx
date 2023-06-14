@@ -24,11 +24,13 @@ export function RootCmp() {
                     {/* {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     <Route path="user/:id" element={<UserDetails />} /> */}
                     <Route element={<HomePage />} path="/">
-                        <Route element={<StoryDetails />} path="story/:storyId" />
+                        <Route element={<StoryDetails />} path="/story/:storyId" />
                     </Route>
                     {/* <Route element={<HomePage />} path="/" /> */}
                     <Route element={<ChatApp />} path="messages" />
-                    <Route element={<Profile />} path="profile/:username" />
+                    <Route element={<Profile />} path="/:username">
+                        <Route element={<StoryDetails />} path="/:username/:storyId" />
+                    </Route>
                 </Routes>
             </main>
             <StoryEdit />

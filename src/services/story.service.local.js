@@ -72,7 +72,10 @@ function getEmptyStory() {
     // const txt = `🔵🔴 | “Messi will decide next week”`
     
     return {
-        by: 'fabriziorom',
+        by: {
+            username: 'eitanesta8',
+            _id: 'abc123'
+        },
         id: _makeId(),
         // imgUrl: '',
         txt: '',

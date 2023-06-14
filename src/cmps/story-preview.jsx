@@ -52,7 +52,7 @@ export function StoryPreview({ story }) {
         <section className="story-preview">
             <section className='story-header flex'>
                 <div className='header-info'>
-                    <a className='author'>{story.by}</a>
+                    <a className='author'>{story.by.username}</a>
                     <span title={utilService.getDate(story.time)} className='time'> • {utilService.getTimeString(story.time)}
                         {/* <title>{utilService.getDate(story.time)}</title> */}
                     </span>
@@ -93,7 +93,7 @@ export function StoryPreview({ story }) {
                 Liked by <a className='author'>{story.liked[0].by}</a> and {story.liked.length - 1} <a className='author'>others</a>
             </h2>
             <h2 className='caption'>
-                <a className='author'>{story.by}</a>
+                <a className='author'>{story.by.username}</a>
                 <span className='caption-txt'> <LongTxt txt={story.txt} /></span>
             </h2>
             <h2 className='comments'>

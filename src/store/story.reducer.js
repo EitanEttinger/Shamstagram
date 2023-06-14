@@ -6,7 +6,6 @@ export const UNDO_REMOVE_STORY = 'UNDO_REMOVE_STORY'
 
 const initialState = {
     storys: [],
-    storyt: [],
     lastRemovedStory: null
 }
 

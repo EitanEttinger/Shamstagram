@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { useEffect } from "react"
 
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useParams, Outlet } from 'react-router-dom'
 import { loadUsers } from '../store/user.actions'
-import { loadStories } from "../store/story.actions"
+import { loadStorys } from "../store/story.actions"
 
 
 import imgUrlEitan from '../assets/img/Eitan.jpg'
@@ -23,56 +23,26 @@ const reelsIcon = <svg className='posts-btn-icon flex justify-center align-cente
 const savedIcon = <svg className='posts-btn-icon flex justify-center align-center' color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" height="12" role="img" viewBox="0 0 24 24" width="12"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polygon></svg>
 const taggedIcon = <svg className='posts-btn-icon flex justify-center align-center' color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" height="12" role="img" viewBox="0 0 24 24" width="12"><path d="M10.201 3.797 12 1.997l1.799 1.8a1.59 1.59 0 0 0 1.124.465h5.259A1.818 1.818 0 0 1 22 6.08v14.104a1.818 1.818 0 0 1-1.818 1.818H3.818A1.818 1.818 0 0 1 2 20.184V6.08a1.818 1.818 0 0 1 1.818-1.818h5.26a1.59 1.59 0 0 0 1.123-.465Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path><path d="M18.598 22.002V21.4a3.949 3.949 0 0 0-3.948-3.949H9.495A3.949 3.949 0 0 0 5.546 21.4v.603" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path><circle cx="12.072" cy="11.075" fill="none" r="3.556" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></circle></svg>
 
-function Posts() {
-    const [posts, setPosts] = useState([imgUrlBee, imgUrlDesert, imgUrlSea, imgUrlSnow])
-
-    const postList = posts.map((post, idx) => (
-        <img src={post} alt={`${post}`} className="post-preview" key={post} onClick={(ev) => {
-            ev.stopPropagation();
-            setPosts(posts.filter(p => p !== post))
-        }} />
-        // <article className="post-preview" key={post} onClick={(ev) => {
-        //     ev.stopPropagation();
-        //     setPosts(posts.filter(p => p !== post))
-        // }}>
-        //     {post}
-        // </article>
-    ))
-    return <section style={{ minHeight: '50vh', backgroundColor: 'white' }}>
-        <div className='filter-posts-btns flex justify-center align-center'>
-            <div className='filter-posts-btn flex justify-center align-center'>{postsIcon} <div className='posts-btn-txt flex justify-center align-center'><span>POSTS</span></div></div>
-            <div className='filter-posts-btn flex justify-center align-center'>{reelsIcon} <div className='posts-btn-txt flex justify-center align-center'><span>REELS</span></div></div>
-            <div className='filter-posts-btn flex justify-center align-center'>{savedIcon} <div className='posts-btn-txt flex justify-center align-center'><span>SAVED</span></div></div>
-            <div className='filter-posts-btn flex justify-center align-center'>{taggedIcon} <div className='posts-btn-txt flex justify-center align-center'><span>TAGGED</span></div></div>
-        </div>
-        <div className='post-list'>
-            {postList}
-        </div>
-        <button onClick={ev => {
-            ev.stopPropagation();
-            setPosts([...posts, imgUrlTrees])
-        }}>Add</button>
-    </section>
-}
-
 export function Profile() {
-    // const users = useSelector(storeState => storeState.userModule.users)
+    const users = useSelector(storeState => storeState.userModule.users)
     const user = useSelector(storeState => storeState.userModule.user)
+    const stories = useSelector(storeState => storeState.storyModule.storys)
     // console.log('users :>> ', users);
-    // const stories = useSelector(storeState => storeState.storyModule.stories)
     const params = useParams()
 
     useEffect(() => {
-        // loadStories()
         loadUsers()
+        loadStorys()
     }, [])
 
     const userProfile = user
     // const userProfile = users.find(user => user.username === params.username)
 
+    const profileStories = stories.filter(story => story.by._id === userProfile._id)
+
     return (
         <section className='profile'>
-
+            <Outlet />
             <div className='flex'>
                 <div className='profile-img-container flex justify-center'>
                     <img src={userProfile.imgUrl} className='profile-img' alt="profile-img" />
@@ -109,7 +79,22 @@ export function Profile() {
                 </div>
             </div>
 
-            <Posts />
+            {/* <Posts profileStories={profileStories} /> */}
+            <section style={{ minHeight: '50vh', backgroundColor: 'white' }}>
+                <div className='filter-posts-btns flex justify-center align-center'>
+                    <div className='filter-posts-btn flex justify-center align-center'>{postsIcon} <div className='posts-btn-txt flex justify-center align-center'><span>POSTS</span></div></div>
+                    <div className='filter-posts-btn flex justify-center align-center'>{reelsIcon} <div className='posts-btn-txt flex justify-center align-center'><span>REELS</span></div></div>
+                    <div className='filter-posts-btn flex justify-center align-center'>{savedIcon} <div className='posts-btn-txt flex justify-center align-center'><span>SAVED</span></div></div>
+                    <div className='filter-posts-btn flex justify-center align-center'>{taggedIcon} <div className='posts-btn-txt flex justify-center align-center'><span>TAGGED</span></div></div>
+                </div>
+                <div className='story-list'>
+                    {profileStories.map((story, idx) => (
+                        <Link to={`${story._id}`} key={story._id}>
+                            <img src={story.imgUrl} alt={`${story.imgUrl}`} className="story-preview" />
+                        </Link>
+                    ))}
+                </div>
+            </section>
 
         </section>
     )
