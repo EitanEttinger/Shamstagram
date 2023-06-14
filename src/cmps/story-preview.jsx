@@ -97,7 +97,7 @@ export function StoryPreview({ story }) {
                 <span className='caption-txt'> <LongTxt txt={story.txt} /></span>
             </h2>
             <h2 className='comments'>
-                {story.comments.length > 2 && <span className='view-comments'>View all {story.comments.length} comments</span>}
+                {story.comments.length > 2 && <Link className='view-comments' to={`/story/${story._id}`}><span className='view-comments'>View all {story.comments.length} comments</span></Link>}
                 {(story.comments.length > 0 && story.comments.length < 3) && <p><a className='author'>{story.comments[0].by}</a> <LongTxt txt={story.comments[0].txt} /></p>}
                 {(story.comments.length > 1 && story.comments.length < 3) && <p><a className='author'>{story.comments[1].by}</a> <LongTxt txt={story.comments[1].txt} /></p>}
             </h2>
