@@ -1,8 +1,11 @@
+import { useSelector } from 'react-redux'
 
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+
 import messi from '../assets/img/messi.png'
+import imgUrlEitan from '../assets/img/Eitan.jpg'
 
 const STORAGE_KEY = 'story'
 
@@ -67,15 +70,13 @@ async function addStoryMsg(storyId, txt) {
     return msg
 }
 
-function getEmptyStory() {
+function getEmptyStory(user) {
     // const eh = Date.now()
     // const txt = `🔵🔴 | “Messi will decide next week”`
+    // const user = useSelector(storeState => storeState.userModule.user)
     
     return {
-        by: {
-            username: 'eitanesta8',
-            _id: 'abc123'
-        },
+        by: user,
         id: _makeId(),
         // imgUrl: '',
         txt: '',

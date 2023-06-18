@@ -14,70 +14,112 @@
     padding: 0 0 20px 0;
     border-block-end: 1px $clr9 solid;
 
-    a {
-        text-decoration: none;
+    .story-img {
+        height: 585px;
+        width: 100%;
+        object-fit: cover;
     }
 
-    .buttons > .icon {
-        margin-block-start: 6px;
-        margin-block-end: 10px;
-        margin-inline-end: 16px;
+    a {
+        color: black;
+        text-decoration: none;
     }
     
-    .icon {
-        height: 24px;
-        width: 24px;
-        cursor: pointer;
+    .buttons {
+        .icon {
+            margin-block-start: 6px;
+            margin-block-end: 10px;
+            margin-inline-end: 16px;
+        }
+
+        .save, .remove {
+            text-align: end;
+            margin-inline-end: 0;
+            margin-inline-start: auto;
+        }
     }
     
-    .buttons > .save {
-        text-align: end;
-        margin-inline-end: 0;
-        margin-inline-start: auto;
-    }
-    
+
     * {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         font-size: 14px;
         font-weight: 400;
         line-height: 18px;
     }
-    
+
     .author {
         font-weight: 600;
         cursor: pointer;
     }
-    
+
     .show-more {
         display: block;
         color: $clr8;
         cursor: pointer;
     }
-    
-    .comments > .view-comments {
+
+    .comments>.view-comments {
         margin-block-end: 8px;
         color: $clr8;
         cursor: pointer;
     }
-    
+
     .story-header {
         justify-content: space-between;
         margin-block: 8px;
+        padding-inline: 5px 0;
     }
-    
-    .header-info > .time {
-        color: $clr8;
+
+    .header-info {
+        .story-by {
+            font-weight: 600;
+            padding-inline: 5px;
+        }
+
+        .time {
+            color: $clr8;
+        }
     }
-    
-    .comment-add > .comment-input {
+
+    .comment-add>.comment-input {
         width: 100%;
         margin: 0;
         border: 0;
     }
-    
-    .comment-add > .comment-input:focus-visible {
+
+    .comment-add>.comment-input:focus-visible {
         outline: 0;
     }
+}
+
+.icon:not(.unlike, .remove), .icon-comment {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(114, 114, 114);
+        fill: rgb(114, 114, 114);
+    }
+}
+
+.unlike {
+    height: 24px;
+    width: 24px;
+    fill: rgb(255, 48, 64);
+    cursor: pointer;
+}
+
+.remove {
+    cursor: pointer
+}
+
+
+
+.profile-img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
 }
 
 // .story-preview .buttons > .icon {

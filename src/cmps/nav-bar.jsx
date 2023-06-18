@@ -32,8 +32,10 @@ const moreIconActive = <svg color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24"
 
 
 export function NavBar() {
-    const myUser = { _id: 'abc123', fullname: 'Eitan Ettinger', username: 'eitanesta8', imgUrl: imgUrlEitan, password:'123',}
-    userService.saveLocalUser(myUser)
+    const myUser = { fullname: 'Eitan Ettinger', username: 'eitanesta8', imgUrl: imgUrlEitan, password:'123', savedStoryIds: []}
+    // userService.saveLocalUser(myUser)
+    // userService.signup(myUser)
+    userService.login(myUser)
     const user = useSelector(storeState => storeState.userModule.user)
 
     async function onLogin(credentials) {

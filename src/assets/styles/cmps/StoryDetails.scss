@@ -72,11 +72,13 @@
             border-inline-start: 1px solid $clr11;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden;
 
-            .story-user-info {
-                .time {
-                    color: $clr8;
-                }
+            * {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 18px;
             }
 
             .user-info {
@@ -98,20 +100,33 @@
                 }
             }
 
-            .icon {
-                height: 24px;
-                width: 24px;
-                cursor: pointer;
+            .buttons {
+                padding-block: 6px 8px;
+                .save, .remove {
+                    text-align: end;
+                    margin-inline-end: 0;
+                    margin-inline-start: auto;
+                }
+            }
+
+            .time {
+                font-weight: 400;
+                font-size: 10px;
+                line-height: 12px;
+                letter-spacing: 0.2px;
+                color: $clr8;
             }
 
             .author {
                 font-weight: 600;
+                color: black;
                 cursor: pointer;
             }
 
             .comment-add {
+                width: 100%;
+
                 .comment-input {
-                    width: 100%;
                     margin: 0;
                     border: 0;
                 }
@@ -125,52 +140,84 @@
                 justify-content: space-between;
                 padding: 14px 16px;
                 border-bottom: 1px solid $clr11;
+
+                .story-user-info {
+                    .author {
+                        gap: 18px;
+                    }
+                }
             }
 
             .comment-container {
                 height: calc(100% - 110px);
-                padding: 16px;
+                padding: 0;
+                overflow-x: hidden;
 
                 .comments-list {
-                    width: 100%;
+                    width: calc(100% + 16px);
                     flex-grow: 1;
-                    padding: 0;
+                    padding: 16px;
                     gap: 34px;
-                    // overflow-x: auto;
                     overflow-y: auto;
                     border-bottom: 1px solid $clr11;
-                }
 
-                .comment {
-                    padding: 0;
+                    .comment {
+                        padding: 0;
 
-                    .story-text {
-                        word-break: break-all;
-                    }
-                    
-                    .comment-footer {
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-                    }
+                        section {
+                            padding-inline: 0;
+                        }
 
-                    .time {
-                        font-size: 12px;
-                        color: #a3a3a3;
-                    }
+                        .comment-info {
+                            padding-inline-start: 18px;
+                        }
 
-                    svg {
-                        cursor: pointer;
-                        color: #a3a3a3;
-                        fill: #a3a3a3;
+                        .story-text {
+                            word-break: break-all;
+                        }
 
-                        &:hover {
-                            color: #454545;
-                            fill: #454545;
+                        .comment-footer {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                        }
+
+                        .time {
+                            font-size: 12px;
+                            color: #a3a3a3;
                         }
                     }
-
                 }
+
+                .footer-container {
+                    padding-inline: 16px;
+                }
+            }
+
+            .footer {
+                padding: 6px 16px 6px 0;
+
+                svg {
+                    margin: 8px 16px;
+                    cursor: pointer;
+                }
+
+                .post-comment {
+                    font-weight: 600;
+                    color: $clr10;
+                    cursor: pointer;
+                }
+                .dont-post-comment {
+                    font-weight: 600;
+                    color: rgb(179, 219, 255);
+                    cursor: default;
+                }
+            }
+            
+            .app {
+                position: absolute;
+                bottom: 52px;
+                z-index: 2;
             }
         }
     }

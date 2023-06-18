@@ -80,7 +80,7 @@ function getMonthName(date) {
     return monthNames[date.getMonth()]
 }
 
-function getTimeString(date) {
+function getTimeString(date, isDetails = false) {
     date = new Date(date)
     const now = Date.now()
     const diff = now - date
@@ -98,8 +98,20 @@ function getTimeString(date) {
 
     // let formattedDate = (diff > week) ? `${monthDay} ${month}` :
     //     (diff > day) ? `${getDayName(date, 'en-GB')}` : `${hours}:${minutes}`
-    let formattedDate = (diff > week) ? `${Math.floor(diff / week)}w` :
-        (diff > day) ? `${Math.floor(diff / day)}d` : (diff > hour) ? `${Math.floor(diff / hour)}h` : (diff > min) ? `${Math.floor(diff / min)}m` : `1m`
+
+    if (isDetails) {
+        const formattedDate = (diff > week) ? `${Math.floor(diff / week)} WEEKS AGO` :
+        (diff > day) ? `${Math.floor(diff / day)} DAYS AGO` : 
+        (diff > hour) ? `${Math.floor(diff / hour)} HOURS AGO` : 
+        (diff > min) ? `${Math.floor(diff / min)} MINUTES AGO` : `1 MINUTE AGO`
+
+        return formattedDate
+    }
+
+    const formattedDate = (diff > week) ? `${Math.floor(diff / week)}w` :
+        (diff > day) ? `${Math.floor(diff / day)}d` : 
+        (diff > hour) ? `${Math.floor(diff / hour)}h` : 
+        (diff > min) ? `${Math.floor(diff / min)}m` : `1m`
 
     return formattedDate
 }

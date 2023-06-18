@@ -37,9 +37,9 @@ function remove(userId) {
     // return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id, score }) {
+async function update({ _id, savedStoryIds }) {
     const user = await storageService.get('user', _id)
-    user.score = score
+    user.savedStoryIds = savedStoryIds
     await storageService.put('user', user)
 
     // const user = await httpService.put(`user/${_id}`, {_id, score})
@@ -51,6 +51,7 @@ async function update({ _id, score }) {
 async function login(userCred) {
     const users = await storageService.query('user')
     const user = users.find(user => user.username === userCred.username)
+    console.log('user :>> ', user);
     // const user = await httpService.post('auth/login', userCred)
     if (user) {
         return saveLocalUser(user)
