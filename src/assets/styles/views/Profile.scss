@@ -87,45 +87,53 @@
         color: black;
     }
 
-    .filter-posts-btns {
+    .filter-storys-btns {
         height: 53px;
         margin-block-start: 70px;
         border-block-start: 2px solid rgb(222, 222, 222);
 
-        .filter-posts-btn {
+        .filter-storys-btn {
             margin-inline-start: 55px;
             font-size: 12px;
             line-height: 18px;
 
-            .posts-btn-icon {
+            .storys-btn-icon {
                 color: rgb(115, 115, 115);
             }
 
-            .posts-btn-txt {
+            .storys-btn-txt {
                 margin-inline-start: 6px;
                 color: black;
             }
         }
 
-        .filter-posts-btn:first-child {
+        .filter-storys-btn:first-child {
             margin-inline-start: 0;
         }
 
     }
 
-    .post-list {
+    .story-list {
         display: grid;
         grid-template-columns: repeat(3, 300px);
         grid-template-rows: 300px;
         gap: 4px;
     }
 
-    .post-preview {
+    .story-preview {
         height: 300px;
         width: 300px;
-        object-fit: cover;
+        margin-inline: 0;
 
         // background-position: center;
         // background-size: cover;
+
+        .story-preview-link {}
+
+        .story-preview-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
     }
 }
