@@ -115,20 +115,21 @@
 
     .story-list {
         display: grid;
-        grid-template-columns: repeat(3, 300px);
-        grid-template-rows: 300px;
+        grid-template-columns: repeat(3, 309px);
+        grid-template-rows: 309px;
         gap: 4px;
     }
 
     .story-preview {
-        height: 300px;
-        width: 300px;
-        margin-inline: 0;
+        height: 309px;
+        width: 309px;
+        margin: 0;
+        padding: 0;
 
         // background-position: center;
         // background-size: cover;
 
-        .story-preview-link {}
+        // .story-preview-link {}
 
         .story-preview-img {
             height: 100%;
