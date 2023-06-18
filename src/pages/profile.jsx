@@ -79,19 +79,22 @@ export function Profile() {
                 </div>
             </div>
 
-            {/* <Posts profileStories={profileStories} /> */}
-            <section style={{ minHeight: '50vh', backgroundColor: 'white' }}>
-                <div className='filter-posts-btns flex justify-center align-center'>
-                    <div className='filter-posts-btn flex justify-center align-center'>{postsIcon} <div className='posts-btn-txt flex justify-center align-center'><span>POSTS</span></div></div>
-                    <div className='filter-posts-btn flex justify-center align-center'>{reelsIcon} <div className='posts-btn-txt flex justify-center align-center'><span>REELS</span></div></div>
-                    <div className='filter-posts-btn flex justify-center align-center'>{savedIcon} <div className='posts-btn-txt flex justify-center align-center'><span>SAVED</span></div></div>
-                    <div className='filter-posts-btn flex justify-center align-center'>{taggedIcon} <div className='posts-btn-txt flex justify-center align-center'><span>TAGGED</span></div></div>
+            {/* <storys profileStories={profileStories} /> */}
+            {/* <section style={{ minHeight: '50vh', backgroundColor: 'white' }}> */}
+            <section>
+                <div className='filter-storys-btns flex justify-center align-center'>
+                    <div className='filter-storys-btn flex justify-center align-center'>{postsIcon} <div className='storys-btn-txt flex justify-center align-center'><span>POSTS</span></div></div>
+                    <div className='filter-storys-btn flex justify-center align-center'>{reelsIcon} <div className='storys-btn-txt flex justify-center align-center'><span>REELS</span></div></div>
+                    <div className='filter-storys-btn flex justify-center align-center'>{savedIcon} <div className='storys-btn-txt flex justify-center align-center'><span>SAVED</span></div></div>
+                    <div className='filter-storys-btn flex justify-center align-center'>{taggedIcon} <div className='storys-btn-txt flex justify-center align-center'><span>TAGGED</span></div></div>
                 </div>
                 <div className='story-list'>
                     {profileStories.map((story, idx) => (
-                        <Link to={`${story._id}`} key={story._id}>
-                            <img src={story.imgUrl} alt={`${story.imgUrl}`} className='story-preview' />
-                        </Link>
+                        <div className='story-preview' key={idx}>
+                            <Link className="story-preview-link" to={`${story._id}`} key={story._id}>
+                                <img src={story.imgUrl} alt={`${story.imgUrl}`} className="story-preview-img" />
+                            </Link>
+                        </div>
                     ))}
                 </div>
             </section>
